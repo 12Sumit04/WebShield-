@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WebShield source code security analysis">
+    <title>WebShield | Security Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">W</div>
+            <div>
+                <h2>WebShield</h2>
+                <span>CODE SECURITY</span>
+            </div>
+        </div>
+
+        <div class="nav-heading">WORKSPACE</div>
+
+        <nav>
+            <a href="#" class="nav-link active">▦ &nbsp; Security Overview</a>
+            <a href="#upload" class="nav-link">⌕ &nbsp; New Analysis</a>
+            <a href="#results" class="nav-link">☷ &nbsp; Findings</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="connection-indicator"></div>
+            <div>
+                <strong>Local scanner</strong>
+                <span>127.0.0.1:5000</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <div class="breadcrumb">WORKSPACE / SECURITY ANALYSIS</div>
+                <h1>Security Overview</h1>
+            </div>
+
+            <div class="topbar-right">
+                <span class="system-status">
+                    <span class="status-dot"></span>
+                    Scanner interface ready
+                </span>
+            </div>
+        </header>
+
+        <section class="analysis-intro">
+            <div>
+                <div class="eyebrow">STATIC APPLICATION SECURITY TESTING</div>
+                <h2>Source Code Analyzer</h2>
+                <p>
+                    Inspect application source code for potential security
+                    weaknesses and review actionable findings.
+                </p>
+            </div>
+            <div class="analysis-tag">SAST / SOURCE ANALYSIS</div>
+        </section>
+
+        <section class="upload-section" id="upload">
+
+            <div class="section-title">
+                <div>
+                    <h3>Project Analysis</h3>
+                    <p>Submit a source code archive for security inspection.</p>
+                </div>
+                <span class="step-label">01 / INPUT</span>
+            </div>
+
+            <div class="upload-box" id="uploadBox">
+                <div class="upload-icon">↑</div>
+                <h3>Upload source project</h3>
+                <p>Drag and drop a ZIP archive or select it manually.</p>
+
+                <input type="file" id="fileInput" accept=".zip" hidden>
+
+                <button class="secondary-button" id="browseButton">
+                    Select ZIP archive
+                </button>
+
+                <p class="file-info" id="fileInfo">
+                    Supported format: ZIP · Maximum size: 20 MB
+                </p>
+            </div>
+
+            <button class="scan-button" id="scanButton" disabled>
+                <span>⌕</span> Run security analysis
+            </button>
+
+            <p class="error-message" id="errorMessage" role="alert"></p>
+
+        </section>
+
+        <section class="results-section" id="results">
+
+            <div class="section-title">
+                <div>
+                    <h3>Analysis Report</h3>
+                    <p id="projectName">No project analyzed yet.</p>
+                </div>
+                <span class="step-label" id="scanStatus">AWAITING ANALYSIS</span>
+            </div>
+
+            <div class="stats-grid">
+
+                <article class="stat-card risk-card">
+                    <div class="stat-heading">OVERALL RISK SCORE</div>
+                    <div class="stat-value" id="riskScore">—</div>
+                    <span id="riskLevel">Awaiting analysis</span>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-heading">TOTAL FINDINGS</div>
+                    <div class="stat-value" id="totalFindings">—</div>
+                    <span>Potential security issues</span>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-heading">HIGH SEVERITY</div>
+                    <div class="stat-value high-value" id="highCount">—</div>
+                    <span>Requires priority review</span>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-heading">MEDIUM SEVERITY</div>
+                    <div class="stat-value medium-value" id="mediumCount">—</div>
+                    <span>Requires review</span>
+                </article>
+
+            </div>
+
+            <div class="findings-container">
+
+                <div class="section-title findings-heading">
+                    <div>
+                        <h3>Detected Vulnerabilities</h3>
+                        <p>Potential security weaknesses identified during analysis.</p>
+                    </div>
+                    <span class="step-label">02 / FINDINGS</span>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ISSUE TYPE</th>
+                                <th>SEVERITY</th>
+                                <th>SOURCE FILE</th>
+                                <th>LINE</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="findingsBody">
+                            <tr>
+                                <td colspan="4" class="empty-state">
+                                    No analysis results available.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="recommendations-container">
+                <div class="section-title">
+                    <div>
+                        <h3>Remediation Guidance</h3>
+                        <p>Recommended actions for identified findings.</p>
+                    </div>
+                    <span class="step-label">03 / REMEDIATION</span>
+                </div>
+
+                <div id="recommendationsList">
+                    <p class="empty-state">
+                        Remediation guidance will appear after analysis.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            WEBSHIELD &nbsp;·&nbsp; STATIC SOURCE CODE SECURITY ANALYSIS
+        </footer>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
